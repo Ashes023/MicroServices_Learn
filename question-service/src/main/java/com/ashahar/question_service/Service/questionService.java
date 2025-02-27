@@ -67,6 +67,7 @@ public class questionService {
                 right++;
             }
         }
+        System.out.println("HELLO WORLD");
 
 
         return new ResponseEntity<>(right, HttpStatus.OK);

@@ -5,6 +5,7 @@ import com.ashahar.question_service.Model.QuestionWrapper;
 import com.ashahar.question_service.Model.Response;
 import com.ashahar.question_service.Service.questionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,7 @@ public class QuestionController {
 
     @Autowired
     questionService questionService;
+
 
     @RequestMapping("/allQuestions")
     public ResponseEntity<List<Question>> getQuestions() {
@@ -47,6 +49,7 @@ public class QuestionController {
 
     @PostMapping("/getquestions")
     public ResponseEntity<List<QuestionWrapper>> getQuestionsById(@RequestBody List<Integer> ids){
+        System.out.println("HELLO");
         return questionService.getQuestionsById(ids);
     }
 

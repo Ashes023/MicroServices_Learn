@@ -14,8 +14,8 @@ public class Quiz {
     private Integer id;
     private String title;
 
-    @ManyToMany
-    private List<Question> questions;
+    @ElementCollection
+    private List<Integer> questions;
 
     public Integer getId() {
         return id;
@@ -33,11 +33,11 @@ public class Quiz {
         this.title = category;
     }
 
-    public List<Question> getQuestions() {
+    public List<Integer> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(List<Question> questions) {
+    public void setQuestions(List<Integer> questions) {
         this.questions = questions;
     }
 }

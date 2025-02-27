@@ -1,6 +1,7 @@
 package com.ashahar.quiz_service.Controller;
 
 import com.ashahar.quiz_service.Model.QuestionWrapper;
+import com.ashahar.quiz_service.Model.QuizDto;
 import com.ashahar.quiz_service.Model.Response;
 import com.ashahar.quiz_service.Service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,8 @@ public class QuizController {
     QuizService quizService;
 
     @PostMapping("/create")
-    public ResponseEntity<String> createQuiz(@RequestParam String category, @RequestParam Integer numQ, @RequestParam String title) {
-        return quizService.createQuiz(category, numQ, title);
+    public ResponseEntity<String> createQuiz(@RequestBody QuizDto quizDto) {
+        return quizService.createQuiz(quizDto.getCategoryName(), quizDto.getNumQuestions(), quizDto.getTitle());
     }
 
     @GetMapping("/get/{id}")
